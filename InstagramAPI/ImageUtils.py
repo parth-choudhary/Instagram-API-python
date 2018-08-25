@@ -14,7 +14,7 @@ def getImageSize(fname):
             width, height = struct.unpack('>ii', head[16:24])
         elif imghdr.what(fname) == 'gif':
             width, height = struct.unpack('<HH', head[6:10])
-        elif imghdr.what(fname) == 'jpeg':
+        elif imghdr.what(fname) == 'jpeg' or imghdr.what(fname) == None:
             fhandle.seek(0)  # Read 0xff next
             size = 2
             ftype = 0
